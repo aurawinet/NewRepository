@@ -4,9 +4,11 @@ products = ['Fanta', 'Sprite', 'Coke', 'Rubella']
 #PRINT main menu options
 user_input = ""
 while user_input != "0":
+	print("=====================")
 	print("MAIN MENU")
 	print("0: Exit")
 	print("1: Product Menu")
+	print("2:Order Menu")
 	#GET user input for main menu option
 	user_input = input("Enter option: ")
 
@@ -16,6 +18,7 @@ while user_input != "0":
 	elif user_input == "1":
 		# product menu
 		product_user_input = ""
+	
 		while product_user_input != "0":
 			print("\nPRODUCT MENU")
 			print("0: Return to main menu")
@@ -24,7 +27,7 @@ while user_input != "0":
 			print("3: Update product")
 			print("4: Delete product")
 			product_user_input = input("Enter option: ")
-
+	
 			if product_user_input == "0":
 				# return to main menu
 				print("\nReturning to main menu\n")
@@ -68,21 +71,35 @@ while user_input != "0":
 			else:
 
 				print("\nUnknown option. Press 0 to 4.")
-		
-		#ADDING NEW CUSTOMER (DICTIONARY)
-	{#add a new customer: 
-	#"customer_name": "John",
-	#update customer details:
-	 #"customer_address": "Unit 2, 12 Main Street, LONDON, WH1 2ER",
-	#customer phone number:
-	 #"customer_phone": "0780166991",
-	#add a new order:
-	 #"status": "preparing"
-	#update order details: 
-	#"status": "dispatched"
-	#delete order: 
-	#"status": "cancelled"
-	}
 
-    #view all products or orders
-    #STRETCH I want to be able to update or delete a product or order
+	elif  user_input == "2":
+    				# order menu
+			order_user_input = ""
+			while order_user_input != "0":
+				print("=====================")
+				print("ORDER MENU")
+				print("0: Return to Main Menu")
+				print("1: Print Order List")
+				print("2: Create New Order")
+				print("3: Update Existing Order")
+				print("4: Delete Order")
+				#GET user input for order menu option
+				order_user_input = input("Enter option: ")
+				if order_user_input == "0":
+					# return to main menu
+					print("\nReturning to Main Menu\n")
+				elif order_user_input == "1":
+					# print order list
+					print("\nOrder List\n")
+				elif order_user_input == "2":
+					# create new order
+					print("\nCreate New Order\n")
+				elif order_user_input == "3":
+					# update existing order
+					print("\nUpdate Existing Order\n")
+				elif order_user_input == "4":
+					# delete order
+					print("\nDelete Order\n")
+				else:
+					# invalid input
+					print("\nInvalid Input\n")

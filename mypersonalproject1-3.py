@@ -1,6 +1,22 @@
 # add some product names
 #CREATE products list
 products = ['Fanta', 'Sprite', 'Coke', 'Rubella']
+#CREATE orders list
+orders = [{
+ "customer_name": "John",
+ "customer_address": "Unit 2, 12 Main Street, LONDON, WH1 2ER",
+ "customer_phone": "0789887334",
+ "courier": 2,
+ "status": "preparing"
+}, { 
+ "customer_name": "Peter",
+ "customer_address": "Unit 1, 15 Main Street, LONDON, WH1 2ER",
+ "customer_phone": "0789557314",
+ "courier": 31,
+ "status": "preparing"
+}]
+
+order_status_list = ['preparing', 'on the way', 'delivered']
 #PRINT main menu options
 user_input = ""
 while user_input != "0":
@@ -90,16 +106,32 @@ while user_input != "0":
 					print("\nReturning to Main Menu\n")
 				elif order_user_input == "1":
 					# print order list
-					print("\nOrder List\n")
+					print("\nOrder List:")
+					for order in orders:
+						print(order)
+					input("Press ENTER to return to menu.")
+
 				elif order_user_input == "2":
 					# create new order
-					print("\nCreate New Order\n")
+					print("Add New Order")
+					new_name = input("Enter customer name: ")
+					new_address = input("Enter customer address: ")
+					new_phone = input("Enter customer phone: ")
+					new_courier = input("Enter courier number: ")
+					new_status = input("Enter order status: ")
+					new_order = {"customer_name": new_name, 
+					"customer_address": new_address, 
+					"customer_phone": new_phone}
+					print("Adding", new_order, "to database.")
+					orders.append(new_order)
+
 				elif order_user_input == "3":
-					# update existing order
-					print("\nUpdate Existing Order\n")
-				elif order_user_input == "4":
-					# delete order
-					print("\nDelete Order\n")
-				else:
-					# invalid input
-					print("\nInvalid Input\n")
+    			# update existing order
+					print("\nOrder List:")
+				for idx, order in enumerate(orders):
+					print("\t", idx, order)
+					order_number = input("Which order would you like to update? ")
+					order_number = int(order_number)
+					existing_name = orders[order_number]
+					new_name = input(f"Enter a new name for {existing_name}: ")
+					orders[order_number] = new_name   #WHYYYYYY NOTHING'S HAPPENING/something wrong with update loops works not as expected

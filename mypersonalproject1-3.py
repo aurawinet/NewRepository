@@ -128,10 +128,119 @@ while user_input != "0":
 				elif order_user_input == "3":
     			# update existing order
 					print("\nOrder List:")
-				for idx, order in enumerate(orders):
-					print("\t", idx, order)
+					for idx, order in enumerate(orders):
+						print("\t", idx, order)
 					order_number = input("Which order would you like to update? ")
 					order_number = int(order_number)
-					existing_name = orders[order_number]
-					new_name = input(f"Enter a new name for {existing_name}: ")
-					orders[order_number] = new_name   #WHYYYYYY NOTHING'S HAPPENING/something wrong with update loops works not as expected
+					existing_order = orders[order_number]
+					print(existing_order)
+					new_name = input("Enter customer name: ")
+					if new_name != "":
+    						existing_order["customer_name"] = new_name
+					new_address = input("Enter customer address: ")
+					if new_address != "":
+    						existing_order["customer_address"] = new_address
+					new_phone = input("Enter customer phone: ")
+					if new_phone != "":
+    						existing_order["customer_phone"] = new_phone
+					new_courier = input("Enter courier number: ")
+					if new_courier != "":
+    						existing_order["courier_number"] = new_courier
+					new_status = input("Enter order status: ")
+					if new_status != "":
+    						existing_order["order_status"] = new_status
+					print("Updating", existing_order, "to database.")
+					orders[order_number] = existing_order
+
+				elif order_user_input == "4":
+    										# delete order
+					print("\nOrder List:")
+					for idx, order in enumerate(orders):
+    												print("\t", idx, order)
+					order_number = input("Which order would you like to delete? ")
+					order_number = int(order_number)
+					existing_order = orders[order_number]
+					print(existing_order)
+					del orders[order_number]
+				else:
+    										print("\nUnknown option. Press 0 to 4.")
+
+	
+    		
+		# exit program
+		#print("\nExiting program.")
+	courier menu 
+	courier_user_input = ""
+	while courier_user_input != "0":
+    		print ("=====================")
+			print ("COURIER MENU")
+			print ("0: Return to Main Menu")
+			print ("1: Print Courier List")
+			print ("2: Create New Courier")
+			print ("3: Update Existing Courier")
+			print ("4: Delete Courier")
+			#GET user input for courier menu option
+			courier_user_input = input("Enter option: ")
+			if courier_user_input == "0":
+    								# return to main menu
+				print("\nReturning to Main Menu\n")
+			elif courier_user_input == "1":
+    								# print courier list
+				print("\nCourier List:")
+				for courier in couriers:
+					print(courier)
+				input("Press ENTER to return to menu.")
+			elif courier_user_input == "2":
+    								# create new courier
+				print("Add New Courier")
+				new_name = input("Enter courier name: ")
+				new_phone = input("Enter courier phone: ")
+				new_courier = {"courier_name": new_name, 
+				"courier_phone": new_phone}
+				print("Adding", new_courier, "to database.")
+				couriers.append(new_courier)
+			elif courier_user_input == "3":
+									# update existing courier
+				print("\nCourier List:")
+				for idx, courier in enumerate(couriers):
+					print("\t", idx, courier)
+				courier_number = input("Which courier would you like to update? ")
+				courier_number = int(courier_number)
+				existing_courier = couriers[courier_number]
+				print(existing_courier)
+				new_name = input("Enter courier name: ")
+				if new_name != "":
+					existing_courier["courier_name"] = new_name
+				new_phone = input("Enter courier phone: ")
+				if new_phone != "":
+					existing_courier["courier_phone"] = new_phone
+				print("Updating", existing_courier, "to database.")
+				couriers[courier_number] = existing_courier
+			elif courier_user_input == "4":
+    								# delete courier
+				print("\nCourier List:")
+				for idx, courier in enumerate(couriers):
+					print("\t", idx, courier)
+				courier_number = input("Which courier would you like to delete? ")
+				courier_number = int(courier_number)
+				existing_courier = couriers[courier_number]
+				print(existing_courier)
+				del couriers[courier_number]
+			else:
+    								print("\nUnknown option. Press 0 to 4.")
+		# exit program
+		#print("\nExiting program.")
+	# exit program
+	print("\nExiting program.")
+
+
+# save data to file
+#with open("products.csv", "w") as products_file:
+	#writer = csv.DictWriter(products_file, fieldnames=["name", "price", "quantity"])
+	#writer.writeheader()
+	#writer.writerows(products)
+
+#with open("orders.csv", "w") as orders_file:
+	#writer = csv.DictWriter(orders_file, fieldnames=["customer_name", "customer_address", "customer_phone", "courier_number", "order_status"])
+	#writer.writeheader()
+	#writer.writerows(orders)

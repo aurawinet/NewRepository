@@ -1,16 +1,17 @@
 # add some product names
+# add some product names
 #CREATE products list
 products = ['Fanta', 'Sprite', 'Coke', 'Rubella']
 #CREATE orders list
 orders = [{
  "customer_name": "John",
- "customer_address": "Unit 2, 12 Main Street, LONDON, WH1 2ER",
+ "customer_address": "Number 1, 12 Any Street, LONDON, NW2 1BR",
  "customer_phone": "0789887334",
  "courier": 2,
  "status": "preparing"
 }, { 
  "customer_name": "Peter",
- "customer_address": "Unit 1, 15 Main Street, LONDON, WH1 2ER",
+ "customer_address": "Unit 10, 15 Kingswood Street, LONDON, WH1 2Ox",
  "customer_phone": "0789557314",
  "courier": 31,
  "status": "preparing"
@@ -24,7 +25,8 @@ while user_input != "0":
 	print("MAIN MENU")
 	print("0: Exit")
 	print("1: Product Menu")
-	print("2:Order Menu")
+	print("2: Order Menu")
+	print("3: Courier Menu")
 	#GET user input for main menu option
 	user_input = input("Enter option: ")
 
@@ -165,20 +167,17 @@ while user_input != "0":
 				else:
     										print("\nUnknown option. Press 0 to 4.")
 
-	
-    		
-		# exit program
-		#print("\nExiting program.")
-	courier menu 
-	courier_user_input = ""
-	while courier_user_input != "0":
-    		print ("=====================")
-			print ("COURIER MENU")
-			print ("0: Return to Main Menu")
-			print ("1: Print Courier List")
-			print ("2: Create New Courier")
-			print ("3: Update Existing Courier")
-			print ("4: Delete Courier")
+	elif user_input == "3":
+    		#courier menu
+			courier_user_input = ""
+			while courier_user_input != "0":
+				print ("=====================")
+				print ("COURIER MENU")
+				print ("0: Return to Main Menu")
+				print ("1: Print Courier List")
+				print ("2: Create New Courier")
+				print ("3: Update Existing Courier")
+				print ("4: Delete Courier")
 			#GET user input for courier menu option
 			courier_user_input = input("Enter option: ")
 			if courier_user_input == "0":
@@ -220,18 +219,16 @@ while user_input != "0":
     								# delete courier
 				print("\nCourier List:")
 				for idx, courier in enumerate(couriers):
-					print("\t", idx, courier)
+													print("\t", idx, courier)
 				courier_number = input("Which courier would you like to delete? ")
 				courier_number = int(courier_number)
 				existing_courier = couriers[courier_number]
 				print(existing_courier)
 				del couriers[courier_number]
 			else:
-    								print("\nUnknown option. Press 0 to 4.")
-		# exit program
-		#print("\nExiting program.")
+    										print("\nUnknown option. Press 0 to 4.")
 	# exit program
-	print("\nExiting program.")
+	#print("\nExiting program.")
 
 
 # save data to file

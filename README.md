@@ -12,6 +12,7 @@ I have created product and order menus that aree working well. Currently finishi
 
 How did you guarantee the client requirements? (TESTING)
 I tested my codes if they can run properly, and fixed errors.
+I would do a unit tests.
 
 If you had more time, what is one thing you would improve upon? (ACTION PLAN FOR FUTURE IMPLEMENTATION)
 I would put text on the code in a more tasteful, more readable way.
